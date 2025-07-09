@@ -1,0 +1,237 @@
+/* RTL Support */
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Layout */
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+}
+
+.main-content {
+  flex: 1;
+  min-height: calc(100vh - 300px);
+}
+
+/* Top Banner */
+.top-banner {
+  font-size: 0.9rem;
+}
+
+.top-banner svg {
+  font-size: 1rem;
+}
+
+/* Header */
+.header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  max-height: 40px;
+  width: auto;
+}
+
+.contact-info {
+  line-height: 1.2;
+}
+
+/* Navigation */
+.navbar {
+  background-color: #fff !important;
+  padding: 0.5rem 0;
+}
+
+.navbar .nav-link {
+  color: #333;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s;
+}
+
+.navbar .nav-link:hover {
+  color: #0d6efd;
+}
+
+/* Product Card */
+.card {
+  transition: transform 0.2s;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Price Styling */
+.price-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-decoration-line-through {
+  color: #dc3545;
+}
+
+/* Badge Styling */
+.badge {
+  padding: 0.5em 1em;
+}
+
+/* Footer */
+footer {
+  background-color: #fff;
+  padding: 2rem 0;
+  border-top: 1px solid #dee2e6;
+}
+
+/* RTL specific adjustments */
+.rtl .me-auto {
+  margin-right: 0 !important;
+  margin-left: auto !important;
+}
+
+.rtl .me-1,
+.rtl .me-2,
+.rtl .me-3,
+.rtl .me-4 {
+  margin-right: 0 !important;
+  margin-left: 0.25rem !important;
+}
+
+.rtl .ms-auto {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .top-banner {
+    font-size: 0.8rem;
+  }
+  
+  .top-banner .col-md-4 {
+    text-align: center;
+    margin: 0.25rem 0;
+  }
+
+  .header .contact-info {
+    display: none;
+  }
+
+  .card-img-top {
+    height: 150px;
+  }
+}
+
+/* Container max-width adjustments */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+/* Section Styling */
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Category Cards */
+.category-card {
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+}
+
+.category-card img {
+  border-radius: 8px;
+}
+
+.category-card h5 {
+  margin: 0;
+  color: #333;
+}
+
+/* Carousel Customization */
+.carousel {
+  margin-bottom: 2rem;
+}
+
+.carousel-item img {
+  filter: brightness(0.7);
+}
+
+.carousel-caption {
+  bottom: 20%;
+}
+
+.carousel-caption h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.carousel-caption p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Responsive Carousel */
+@media (max-width: 768px) {
+  .carousel-item img {
+    height: 300px !important;
+  }
+
+  .carousel-caption {
+    bottom: 10%;
+  }
+
+  .carousel-caption h2 {
+    font-size: 1.8rem;
+  }
+
+  .carousel-caption p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* RTL Carousel */
+.rtl .carousel-caption {
+  right: 15%;
+  left: 15%;
+  text-align: right;
+}
+
+/* RTL Category Cards */
+.rtl .category-card {
+  text-align: right;
+}
