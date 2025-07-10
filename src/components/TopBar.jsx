@@ -1,27 +1,86 @@
-import React from 'react'
-import { Col, Container, Row } from 'react-bootstrap'
-import { FaFlag, FaPhone, FaWhatsapp } from 'react-icons/fa'
+import React from 'react';
+import { Container, Dropdown } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
+import { FaFlag } from 'react-icons/fa';
+import './TopBar.css';
 
 function TopBar() {
+  const { t } = useTranslation();
+  const { lang } = useParams();
+
+  const getLocalizedPath = (path) => `/${lang}${path}`;
+
   return (
-    
-      <div className="top-banner bg-primary text-white py-2">
-        <Container>
-          <Row className="align-items-center">
-            <Col className="col-auto d-flex align-items-center">
-              <span>#1 SAUDI RESTAURANT EQUIPMENT SUPPLIER</span>
-              <FaFlag className="ms-2" />
-            </Col>
+    <div className="top-bar bg-light py-2 border-bottom">
+      <Container>
+        <div className="d-flex justify-content-between align-items-center">
+          {/* Left side */}
+          <div className="topbar-left d-flex align-items-center">
+            <span className="supplier-text">#1 SAUDI RESTAURANT EQUIPMENT SUPPLIER</span>
+            <FaFlag className="ms-2 text-primary" />
+          </div>
+
+          {/* Right side */}
+          <div className="topbar-right d-flex align-items-center">
+            <div className="frequently-asked-questions me-4">
+              <a 
+                href="https://help.ekuep.com/en" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-decoration-none text-dark"
+              >
+                Frequently Asked Questions
+              </a>
+            </div>
             
-            <Col className="col-auto d-flex align-items-center justify-content-end">
-              <FaWhatsapp className="me-2" />
-              <span>+966 135120317</span>
-            </Col>
-          </Row>
-        </Container>
-      </div>
-    
-  )
+            <div className="track-order-link me-4">
+              <a 
+                href={getLocalizedPath('/orders')}
+                className="text-decoration-none text-dark"
+              >
+                Track your order
+              </a>
+            </div>
+
+            <div className="country-select-dropdown me-4">
+              <Dropdown>
+                <Dropdown.Toggle variant="link" className="text-dark text-decoration-none p-0">
+                  <img 
+                    width="48" 
+                    height="29" 
+                    src="https://cdn.ekuep.com/v4ekuep/ekuep-ksa-v4/imgs/saudi-flag.jpg" 
+                    alt="KSA" 
+                    className="me-1"
+                  />
+                  KSA
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item>KSA</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            </div>
+
+            <div className="top-lang-area">
+              <a 
+                href={lang === 'en' ? '/ar' : '/en'} 
+                className="language-selector text-decoration-none text-dark"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = lang === 'en' 
+                    ? '/ar' + window.location.pathname.substring(3)
+                    : '/en' + window.location.pathname.substring(3);
+                }}
+              >
+                {lang === 'en' ? 'اللغة العربية' : 'English'}
+              </a>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </div>
+  );
 }
 
-export default TopBar
+export default TopBar;
