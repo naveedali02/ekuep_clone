@@ -3,7 +3,7 @@ import { Container, Dropdown } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { FaFlag } from 'react-icons/fa';
-import './TopBar.css';
+// import './TopBar.css';
 
 function TopBar() {
   const { t } = useTranslation();
@@ -12,8 +12,8 @@ function TopBar() {
   const getLocalizedPath = (path) => `/${lang}${path}`;
 
   return (
-    <div className="top-bar bg-light py-2 border-bottom">
-      <Container>
+    <div className="top-bar">
+      <Container fluid>
         <div className="d-flex justify-content-between align-items-center">
           {/* Left side */}
           <div className="topbar-left d-flex align-items-center">
@@ -22,33 +22,33 @@ function TopBar() {
           </div>
 
           {/* Right side */}
-          <div className="topbar-right d-flex align-items-center">
-            <div className="frequently-asked-questions me-4">
+          <ul className="topbar-right d-flex align-items-center">
+            <li className="">
               <a 
-                href="https://help.ekuep.com/en" 
+                href="#" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-decoration-none text-dark"
               >
                 Frequently Asked Questions
               </a>
-            </div>
+            </li>
             
-            <div className="track-order-link me-4">
+            <li className="">
               <a 
                 href={getLocalizedPath('/orders')}
                 className="text-decoration-none text-dark"
               >
                 Track your order
               </a>
-            </div>
+            </li>
 
-            <div className="country-select-dropdown me-4">
+            <li className="">
               <Dropdown>
                 <Dropdown.Toggle variant="link" className="text-dark text-decoration-none p-0">
                   <img 
-                    width="48" 
-                    height="29" 
+                    width="30" 
+                    height="19" 
                     src="https://cdn.ekuep.com/v4ekuep/ekuep-ksa-v4/imgs/saudi-flag.jpg" 
                     alt="KSA" 
                     className="me-1"
@@ -60,9 +60,9 @@ function TopBar() {
                   <Dropdown.Item>KSA</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
-            </div>
+            </li>
 
-            <div className="top-lang-area">
+            <li className="">
               <a 
                 href={lang === 'en' ? '/ar' : '/en'} 
                 className="language-selector text-decoration-none text-dark"
@@ -75,8 +75,8 @@ function TopBar() {
               >
                 {lang === 'en' ? 'اللغة العربية' : 'English'}
               </a>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
       </Container>
     </div>

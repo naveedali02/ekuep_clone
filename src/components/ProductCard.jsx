@@ -9,7 +9,7 @@ function ProductCard({ product }) {
     <Card className="h-100">
       <Card.Img variant="top" src={product.image} alt={product.name} />
       <Card.Body className="d-flex flex-column">
-        <Card.Title>{product.name}</Card.Title>
+        <Card.Title className="product-title">{product.name}</Card.Title>
         <div className="mb-2">
           <Badge bg="success" className="me-2">{t('product.inStock')}</Badge>
           {product.freeDelivery && (
